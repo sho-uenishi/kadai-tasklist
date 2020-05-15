@@ -3,9 +3,9 @@
   <div id="error_explanation" class="alert alert-warning">
     <ul class="mb-0">
       
-<% model.errors.full_tasks.each do |task| %>
+<% model.errors.full_messages.each do |msg| %>
 
-      <li><%= task %></li>
+      <li><%= msg %></li>
       
 <% end %>
 
