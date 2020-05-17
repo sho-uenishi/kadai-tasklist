@@ -1,6 +1,15 @@
 class TasksController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  
+  def index
+  end
+  
+  def show
+  end
+  
+  def new
+  end
   
   def create
     @task = current_user.tasks.build(task_params)
@@ -12,6 +21,12 @@ class TasksController < ApplicationController
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
       render 'toppages/index'
     end
+  end
+  
+  def edit
+  end
+  
+  def update
   end
 
   def destroy
