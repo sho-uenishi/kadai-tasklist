@@ -26,10 +26,19 @@ class TasksController < ApplicationController
   end
   
   def edit
-    @task = Task.new
+    @task = Task.find(params[:id])
   end
   
   def update
+    @task = Task.find(params[:id])
+
+    if @task.update(task_params)
+      flash[:success] = 'Task は正常に更新されました'
+      redirect_to @task
+    else
+      flash.now[:danger] = 'Task は更新されませんでした'
+      render :edit
+    end
   end
 
   def destroy
